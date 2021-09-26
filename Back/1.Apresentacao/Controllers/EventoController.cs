@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using _2.Dominio.Models;
+using _3.Repositorio.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _1.Apresentacao.Controllers
@@ -13,35 +14,12 @@ namespace _1.Apresentacao.Controllers
     {
 
 
-        //MOCK INICIAL (FORMA BACANA DE MOCKAR OS DADOS INICIALMENTE)
-        private IEnumerable<Evento> listaEventos = new Evento[] {
-                
-                new Evento(){
-                    EventoId = 1,
-                    Local = "São Paulo, Osasco",
-                    Tema = "Empoderamento de mulheres !!",
-                    Lote = "1",
-                    QtdPessoas = 250,
-                    DataEvento = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy"),
-                    ImagemURL = "foto.png"
-                },
-                 new Evento(){
-                    EventoId = 2,
-                    Local = "Bahia, Salvador",
-                    Tema = "Empoderamento de mulheres !!",
-                    Lote = "5",
-                    QtdPessoas = 310,
-                    DataEvento = DateTime.Now.AddDays(10).ToString("dd/MM/yyyy"),
-                    ImagemURL = "foto.png"
-                 }
-
-                };
+        private readonly DataContext _data;
 
 
-
-        public EventoController()
+        public EventoController(DataContext data)
         {
-            
+            _data = data;
         }
 
 
@@ -49,7 +27,7 @@ namespace _1.Apresentacao.Controllers
         [HttpGet]
         public IEnumerable<Evento> Busca(){;
 
-            return listaEventos;
+            return _data.Eventos;
         }
         
 
@@ -63,7 +41,7 @@ namespace _1.Apresentacao.Controllers
             //"listaEventos" (nome que coloquei para didatica)
 
             //Dessa forma consigo simular a busca comqualquer id da lista
-            return listaEventos.Where(eventox => eventox.EventoId == id);
+            return _data.Eventos.Where(eventox => eventox.EventoId == id);
         }
         
 
@@ -83,7 +61,7 @@ namespace _1.Apresentacao.Controllers
                 ImagemURL = request.ImagemURL
             };
 
-            listaEventos.ToList().Add(evento);
+            _data.Eventos.ToList().Add(evento);
 
             return NoContent();
 

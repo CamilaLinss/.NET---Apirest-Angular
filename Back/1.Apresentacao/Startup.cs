@@ -1,5 +1,7 @@
+using _3.Repositorio.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +21,13 @@ namespace _1.Apresentacao
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<DataContext>(
+
+                                            //O metodo Get pega o Objeto do json com o nome exato de "ConnectionStrings"
+                context => context.UseSqlite(Configuration.GetConnectionString("BancoSq"))
+
+            );
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
