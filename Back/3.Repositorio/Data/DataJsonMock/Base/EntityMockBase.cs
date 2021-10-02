@@ -16,8 +16,8 @@ namespace _3.Repositorio.Data.DataJsonMock.Base
         {
             Tabela = tabela;
             
-            jsonTable = File.ReadAllText($"..\\infrastructure\\Database\\DataMockJson\\JsonTables\\Tabela{Tabela}.json");
-            jsonTableSavePath = $"..\\infrastructure\\Database\\DataMockJson\\JsonTables\\Tabela{Tabela}.json";
+            jsonTable = File.ReadAllText($"..\\3.Repositorio\\Data\\DataJsonMock\\JsonTables\\Tabela{Tabela}.json");
+            jsonTableSavePath = $"..\\3.Repositorio\\Data\\DataJsonMock\\JsonTables\\Tabela{Tabela}.json";
         
         }
 

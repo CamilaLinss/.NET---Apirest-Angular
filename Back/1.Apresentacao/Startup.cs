@@ -1,4 +1,10 @@
+using _2.Dominio.Interface;
+using _2.Dominio.Services;
+using _2.Dominio.Services.Interface;
+using _3.Repositorio;
 using _3.Repositorio.Data;
+using _3.Repositorio.Data.DataJsonMock.Repositorios;
+using _3.Repositorio.Data.DataJsonMock.Repositorios.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +34,17 @@ namespace _1.Apresentacao
                 context => context.UseSqlite(Configuration.GetConnectionString("BancoSq"))
 
             );
+
+            services.AddScoped<DataContext>();
+            
+            //Service mock com parametro no construtor
+            services.AddScoped<IDataEventoMock>(_ => new DataEventoMock("Evento"));
+
+
+            services.AddScoped<IEventoRepository, EventoRepository>();
+            services.AddScoped<IEventoService, EventoService>();
+
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -2,16 +2,17 @@ using System.Collections.Generic;
 using System.Linq;
 using _2.Dominio.Models;
 using _3.Repositorio.Data.DataJsonMock.Base;
+using _3.Repositorio.Data.DataJsonMock.Repositorios.Interface;
 
 namespace _3.Repositorio.Data.DataJsonMock.Repositorios
 {
 
     //MOCK DE BANCO DE DADOS COM JSON
-    public class DataClienteMock : EntityMockBase<Evento>
+    public class DataEventoMock : EntityMockBase<Evento>, IDataEventoMock
     {
 
   
-        public DataClienteMock(string tabela) : base(tabela){}
+        public DataEventoMock(string tabela) : base(tabela){}
 
     
         public void PostEventoMock(Evento evento){

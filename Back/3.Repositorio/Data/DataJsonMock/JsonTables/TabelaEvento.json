@@ -1,0 +1,11 @@
+[
+  {
+    "EventoId": 1,
+    "Local": "SP - OSASCO",
+    "DataEvento": "01.02.2021",
+    "Tema": "Saude da Mulher",
+    "QtdPessoas": 100,
+    "Lote": "5",
+    "ImagemURL": "imagem.com"
+  }
+]
