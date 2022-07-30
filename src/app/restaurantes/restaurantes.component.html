@@ -1,0 +1,27 @@
+<!-- INíCIO do CONTEÚDO -->
+<section class="content-header">
+  <h1>
+    Todos os Restaurantes
+  </h1>
+</section>
+
+
+<section class="content">
+
+  <div class="row">
+    
+          <!-- div que limita a linha e coluna que aparece o restaurante-->
+          <!--*ngFor - config do angular para iterar os itens de div -->
+          <!--no app componente tenho um array chamado restaurantes -->
+          <div *ngFor="let restaurante of restaurantes" class="col-sm-6 col-xs-12">
+          <!-- iterando os restaurantes-->
+          <!-- no atributo restaurante do component restaurante.ts se chama '[restaurante]' onde passo o objeto restaurante que estou pegando no for-->
+                <mt-restaurante [restaurante] = 'restaurante'></mt-restaurante>
+                
+          </div>
+
+        </div>
+
+</section>
+
+<!-- FIM  do CONTEÚDO -->

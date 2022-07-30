@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+  <!-- Header mantenho o header pois quero que ele fique fixo enquanto na parte debaixo seja mudado os componentes-->
+  <mt-header></mt-header>
+  
+ 
+  <!-- Full Width Column -->
+  <div class="content-wrapper">
+    <div class="container">
+
+      {{corpo}}
+
+      <!-- um exemplo de roteamento -->
+       <!-- trocar a tag do componente home, pelo de outlet -->
+       <!-- para que o componente que aparecer na tela sejam os indicados pela tabela de roteamento -->
+      <router-outlet></router-outlet>
+      <!-- <mt-home></mt-home> -->
+      
+
+    </div>
+  </div>
+
+  
+
+  <!-- snakbar deve ser aqui -->
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 1.0.0
+      </div>
+      <strong>Meat</strong> Angular Application
+    </div>
+  </footer>
+</div>
